@@ -45,7 +45,7 @@ module Devise
         # Generate a token checking if one does not already exist in the database.
         def authentication_token
           loop do
-            token = Devise.friendly_token
+            token = Devise.friendly_token(200)
             break token unless to_adapter.find_first({ authentication_token: token })
           end
         end
